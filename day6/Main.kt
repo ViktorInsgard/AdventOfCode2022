@@ -6,7 +6,7 @@ import kotlin.math.max
 fun main(args: Array<String>) {
     val input = File(args[0]).readText()
     println("A: " + findAnswer(input, 4))
-    println("A: " + findAnswer(input, 14))
+    println("B: " + findAnswer(input, 14))
 }
 
 fun findAnswer(input: String, uniqueCharactersRequired: Int) : Int {
@@ -18,8 +18,6 @@ fun findAnswer(input: String, uniqueCharactersRequired: Int) : Int {
             val potentialSkipUntil = index + skipUntilDelta
             skipUntil = max(skipUntil, potentialSkipUntil)
         } else if (index >= skipUntil){
-            println(lastChars)
-            println(char)
             return index + 1
         }
         if (lastChars.size >= (uniqueCharactersRequired - 1))
